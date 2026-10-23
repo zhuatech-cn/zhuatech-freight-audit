@@ -1,0 +1,51 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "PASS",
+      "expectedFuel": "#80",
+      "expectedTotal": "#1100"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "billedFuel": "81"
+    },
+    "expected": {
+      "decision": "HOLD",
+      "fuelVariance": "#1"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "invoiceTotal": "1101"
+    },
+    "expected": {
+      "decision": "HOLD"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "fuelPct": "0",
+      "billedFuel": "0",
+      "invoiceTotal": "1020"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "billedFuel": "80.01",
+      "invoiceTotal": "1100.01"
+    },
+    "expected": {
+      "decision": "PASS"
+    },
+    "error": false
+  }
+]

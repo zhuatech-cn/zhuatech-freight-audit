@@ -1,0 +1,97 @@
+{
+  "slug": "freight-audit",
+  "title": "燃油附加费与账单总额复核",
+  "fields": [
+    {
+      "key": "id",
+      "label": "记录编号",
+      "type": "ID"
+    },
+    {
+      "key": "baseFreight",
+      "label": "主运费",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "fuelPct",
+      "label": "燃油附加比例%",
+      "type": "NUMBER",
+      "scale": 4,
+      "min": "0",
+      "max": "100"
+    },
+    {
+      "key": "otherCharges",
+      "label": "已确认其他费用",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "billedFuel",
+      "label": "登记燃油附加费",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "invoiceTotal",
+      "label": "账单总金额",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    },
+    {
+      "key": "tolerance",
+      "label": "金额容差",
+      "type": "NUMBER",
+      "scale": 2,
+      "min": "0",
+      "max": "1000000000000"
+    }
+  ],
+  "columns": [
+    {
+      "key": "expectedFuel",
+      "label": "应计燃油附加费"
+    },
+    {
+      "key": "expectedTotal",
+      "label": "应计账单合计"
+    },
+    {
+      "key": "fuelVariance",
+      "label": "附加费差异"
+    },
+    {
+      "key": "totalVariance",
+      "label": "总额差异"
+    }
+  ],
+  "description": "按主运费及合同输入燃油比例计算应计附加费，对比实际附加费和账单总额；不生成承运商结算。",
+  "owner": "上海如静知华信息科技有限公司",
+  "website": "https://www.zhuatech.cn/",
+  "authorization": "商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。",
+  "version": 1,
+  "notes": "输入均须为已获授权的同口径数据。金额固定人民币元；比例为百分数。核算结果只用于复核，未审批、未写库、未发起外部调用，也未触发付款、签名、资料销毁或设备控制。建议不构成法律、安全、会计或碳核证结论。",
+  "sample": {
+    "asOf": "2026-10-23",
+    "records": [
+      {
+        "id": "ITEM-001",
+        "baseFreight": "1000",
+        "fuelPct": "8",
+        "otherCharges": "20",
+        "billedFuel": "80",
+        "invoiceTotal": "1100",
+        "tolerance": "0.01"
+      }
+    ]
+  }
+}
